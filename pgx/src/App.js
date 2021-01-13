@@ -11,24 +11,24 @@ function App() {
   return (
     <Router>
       <Layout className="layout">
-        <Header >
+        <Header className='page-header'>
           <div className="logo" />
-          <Menu theme="dark" mode="horizontal" >
+          <Menu theme="dark" mode="horizontal" className='menuwrapper'>
             <Menu.Item key="1">
-              <Link to='/pgs'>pgs</Link>
+              <Link to='/pgs/dashboard'>pgs</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to='/pgd'>pgd</Link>
+              <Link to='/pgd/dashboard'>pgd</Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Link to='/azf'>azf</Link>
+              <Link to='/azf/dashboard'>azf</Link>
             </Menu.Item>
           </Menu>
         </Header>   
       </Layout>        
-        <Route exact path="/pgs" component={Pgs} />
-        <Route path="/pgd" component={Pgd} />
-        <Route path="/azf" component={Azf} />
+        <Route exact path="/pgs/dashboard" component={Pgs} />
+        <Route path="/pgd/dashboard" component={Pgd} />
+        <Route path="/azf/dashboard" component={Azf} />
      
     </Router>
   );
