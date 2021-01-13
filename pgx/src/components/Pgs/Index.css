@@ -1,0 +1,25 @@
+.siderwrapper{
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #333;
+    /* background-image: url(/static/media/bg-left.94698bbb.png); */
+    background-size: 80px;
+    background-repeat: repeat-y;
+}
+.contentWrapper{
+    margin-top: 50px;
+    margin-left: 200px;
+    position: relative;
+    padding: 20px;
+    padding-top: 10px;
+}
+      
+.ant-menu-dark, .ant-menu-dark .ant-menu-sub{
+    background-color: #333 !important;
+}
+.content{
+    height: 100vh;
+}

@@ -5,3 +5,20 @@
   margin: 16px 28px 16px 0;
   float: left;
 }
+.page-header {
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #2772be;
+  /* background-image: url(/static/media/header-bg.2d6aa282.png); */
+  background-size: cover;
+  display: flex;
+}
+.menuwrapper{
+  height: 50px;
+  background-color: #2772be;
+  width: 30%;
+}

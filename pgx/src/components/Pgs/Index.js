@@ -1,50 +1,51 @@
 import React from 'react'
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import Home from '../../pages/Home';
-
+import router from '../../router/pgs/router';
+import PgsDashboard from '../../pages/PgsDashboard';
+import PgsDataManage from '../../pages/PgsDataManage'
+import PgsDataStatistics from '../../pages/PgsDataStatistics'
+import PgsRecycleBin from '../../pages/PgsEcycleBin'
+import PgsReport from '../../pages/PgsReport'
+import PgsStatistics from '../../pages/PgsStatistics'
+import './Index.css'
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 class Pgs extends React.Component {
+    constructor(props){
+        super(props)
+        this.state={}
+    }
+    selected=(val)=>{
+        console.log(val)
+    }
     render(){
+        
         return (
             <Router>
-                <Layout>
-                    <Sider width={200} style={{ background: '#fff' }}>
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1">
-                            {/* <Icon type="user" /> */}
-                            <Link  to='/all'>
-                                    <Icon type="user" />
-                                    总览
-                                </Link>
-                         </Menu.Item>
-                        <Menu.Item key="2">
-                        <Icon type="video-camera" />
-                        <span>nav 2</span>
-                        </Menu.Item>
-                        <Menu.Item key="3">
-                        <Icon type="upload" />
-                        <span>nav 3</span>
-                        </Menu.Item>
+                <Layout className='content'>
+                    <Sider  className='siderwrapper'>
+                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['/pgs/dashboard']} >
+                        {router&&router.map(item=>{
+                            return <Menu.Item key={item.key} >
+                                        <Link  to={item.key} >
+                                                <Icon type={item.icon} />
+                                                {item.title}
+                                        </Link>
+                                    </Menu.Item>
+                        })}
                     </Menu>
                         
                     </Sider>
                     <Layout style={{ padding: '0 24px 24px' }}>
-                        <Breadcrumb style={{ margin: '16px 0' }}>
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>List</Breadcrumb.Item>
-                        <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
-                        <Content
-                        style={{
-                            background: '#fff',
-                            padding: 24,
-                            margin: 0,
-                            minHeight: 280,
-                        }}
-                        >
-                            <Route path="/all" component={Home} />
+                        
+                        <Content className='contentWrapper'>
+                            <Route path='/pgs/dashboard' component={PgsDashboard} exact/>
+                            <Route path='/pgs/report' component={PgsReport} />
+                            <Route path='/pgs/data_manage' component={PgsDataManage} />
+                            <Route path='/pgs/statistics' component={PgsStatistics} />
+                            <Route path='/pgs/data_statistics' component={PgsDataStatistics} />
+                            <Route path='/pgs/recycle_bin' component={PgsRecycleBin} />
                         </Content>
                     </Layout>
                 </Layout>
