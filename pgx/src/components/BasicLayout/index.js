@@ -121,6 +121,7 @@ export default class BasicLayout extends React.Component{
     super(props)
   }
   render(){
+    console.log(this.props)
     return (
       <Layout>
         <Header className="header">

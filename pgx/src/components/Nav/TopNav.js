@@ -2,6 +2,9 @@ import React from 'react'
 import { Menu } from 'antd';
 
 export default class TopNav extends React.Component{
+  renderMenu=()=>{
+   const routerList=this.props.routerList;
+  }
   render(){
     return (
       <Menu

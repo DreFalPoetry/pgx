@@ -22,3 +22,21 @@
   background-color: #2772be;
   width: 30%;
 }
+.entrance-wrapper .entrance-web.pgd {
+  background: #286cac;
+}
+.entrance-wrapper .entrance-web img {
+  display: inline-block;
+  margin-top: 54px;
+  margin-left: 85px;
+  width: 60px;
+  height: 60px;
+}
+.entrance-wrapper .entrance-web .entrance-text {
+  display: block;
+  margin-top: 15px;
+  font-family: PingFangSC-Semibold;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+}
