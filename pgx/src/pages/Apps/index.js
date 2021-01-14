@@ -1,0 +1,58 @@
+import React from 'react'
+import { BrowserRouter as Router, Route,Link, Switch, Redirect } from 'react-router-dom'; //引入路由模块
+import '../Login/index.css'
+import azf from'./azf.06645633.svg'
+import pgd from './pgd.cc0e235e.svg'
+import pgs from './pgs.0b520ce0.svg'
+
+class Apps extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={}
+    }
+   onClick=(type)=>{
+      
+       if(type=='pgs'){
+        this.props.history.push("/pgs/entrance");
+       }else if(type=='pgd'){
+        this.props.history.push("/pgd/entrance");
+       }else if(type=='azf'){
+        this.props.history.push("/azf/entrance");
+       }
+    
+   }
+    render(){
+        return (
+            <Router>
+                <div className='login-back'>
+                    <div className='page-front-login-sp'>
+                        <h1 className="logo-img">PGC CLOUD</h1>
+                        <h2 className='logo-user'>欢迎您，<span className='logo-username'>测试账号</span></h2>
+                        <div className="apps-container" >     
+                                <div className="app-card app-pgs" onClick={()=>this.onClick('pgs')}>
+                                    <img src={pgs} className="app-icon" alt="app"/>
+                                    <div className="app-name">PGS/gDNA</div>
+                                    <div className="card-shadow pgs"></div>
+                                </div>
+                      
+                                
+                                <div className="app-card app-pgd" onClick={()=>this.onClick("pgd")}>
+                                    <img src={pgd} className="app-icon" alt="app"/>
+                                    <div className="app-name">PGD</div><div className="card-shadow pgd"></div>
+                                </div>
+                                <div className="app-card app-azf" onClick={()=>this.onClick("azf")}>
+                                    <img src={azf} className="app-icon" alt="app"/>
+                                    <div className="app-name">AZF</div><div className="card-shadow azf"></div>
+                                </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </Router>
+           
+        )
+    }
+   
+}
+
+export default Apps;
