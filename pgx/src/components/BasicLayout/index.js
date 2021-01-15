@@ -122,6 +122,7 @@ class BasicLayout extends React.Component{
     super(props)
     this.state = {
       mainMenuKey:'',
+      curkey: '',
       sideMenuArr:[]
     }
   }
@@ -147,18 +148,19 @@ class BasicLayout extends React.Component{
     })
     this.setState({
       mainMenuKey: curNav,
+      curkey: curNav + new Date().getTime(),
       sideMenuArr: _currentSideMenu
     })
   }
 
   render(){
-    const  {mainMenuKey, sideMenuArr} = this.state
+    const  {mainMenuKey, sideMenuArr, curkey} = this.state
     return (
       <Layout>
         <Header className="header">
           <div className="logo" />
           <TopNav 
-            key={mainMenuKey}
+            key={curkey}
             routerList={router} 
             currentMenu={mainMenuKey}
             changeSideMenu={this.changeSideMenu}
@@ -168,7 +170,7 @@ class BasicLayout extends React.Component{
           <Sider width={200} className="site-layout-background">
             <SideNav 
               routerList={sideMenuArr}  
-              key={mainMenuKey}
+              key={curkey}
             />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>

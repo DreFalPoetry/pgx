@@ -29,7 +29,7 @@ function App() {
           <BasicLayout>
             <Switch>
               <Route path='/' exact render={()=> (
-                <Redirect to='/pgs/dashboard'/>
+                <Redirect to='/apps'/>
               )}/>
               <Route path="/pgs/dashboard" exact component={PgsDashboard}></Route>  
               <Route path="/pgs/report" exact component={PgsReport}></Route>  
