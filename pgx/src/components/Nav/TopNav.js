@@ -3,6 +3,7 @@ import { Menu } from 'antd';
 import './index.css'
 export default class TopNav extends React.Component{
   clickMenu = ({ item, key, keyPath, domEvent }) => {
+    this.props.onSelected('总览')
     this.props.changeSideMenu(key)
   }
   

@@ -183,6 +183,7 @@ class BasicLayout extends React.Component{
             routerList={router} 
             currentMenu={mainMenuKey}
             changeSideMenu={this.changeSideMenu}
+            onSelected={this.onSelected}
           />
         </Header>
         <Layout>
