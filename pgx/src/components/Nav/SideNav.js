@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Menu } from 'antd';
-
+import './index.css'
 class SideNav extends React.Component{
   constructor(props){
     super(props)
@@ -18,6 +18,16 @@ class SideNav extends React.Component{
   }
 
   clickMenu = ({ item, key, keyPath, domEvent }) => {
+   
+    let _this=this;
+    this.props.routerList.map(item=>{
+      
+      if(item.key==key){
+        _this.props.onSelected(item.title)
+      }
+     
+    })
+    
     this.setState({
       menuKey: key
     },()=>{
@@ -29,15 +39,18 @@ class SideNav extends React.Component{
     const {menuKey} = this.state
     return (
       <Menu 
-        theme="dark" 
-        mode="inline" 
+      // className="page-sidebar"
+        // mode="inline" 
         selectedKeys={menuKey} 
-        style={{ height: '100%', borderRight: 0 }}
+       className='page-sidebar-nav'
         onClick={this.clickMenu}
       > 
         {
           routerList.map(item=>{
-            return <Menu.Item key={item.key}>{item.title}</Menu.Item>
+            return <Menu.Item key={item.key}>
+              <span className={`sidebar-icon ${item.icon}`} ></span>
+              <span className='sidebar-title'>{item.title}</span>           
+              </Menu.Item>
           })
         }
       </Menu>

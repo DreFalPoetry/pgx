@@ -5,7 +5,7 @@ import BasicLayout from './components/BasicLayout';
 import PgsDashboard from './pages/PgsDashboard'
 import PgsReport from './pages/PgsReport'
 import PgsDataManage from './pages/PgsDataManage'
-import PgsHome from './components/Pgs/Index';
+
 // import Pgd from './components/Pgd/Index';
 // import Azf from './components/Azf/Index'
 import './App.css'
