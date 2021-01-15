@@ -2,21 +2,26 @@ import React from 'react'
 import { Menu } from 'antd';
 
 export default class TopNav extends React.Component{
-  renderMenu=()=>{
-   const routerList=this.props.routerList;
+  clickMenu = ({ item, key, keyPath, domEvent }) => {
+    this.props.changeSideMenu(key)
   }
+
   render(){
+    const {routerList, currentMenu} = this.props
     return (
       <Menu
-        mode="inline"
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        style={{ height: '100%', borderRight: 0 }}
+        theme="dark"
+        mode="horizontal"
+        onClick={this.clickMenu}
+        defaultSelectedKeys={[currentMenu ? currentMenu : routerList[0].key]}
       >
-        <Menu.Item key="1">option1</Menu.Item>
-        <Menu.Item key="2">option2</Menu.Item>
-        <Menu.Item key="3">option3</Menu.Item>
-        <Menu.Item key="4">option4</Menu.Item>
+        {
+          routerList.map((menu)=>{
+            return (
+              <Menu.Item key={menu.key}>{menu.title}</Menu.Item>
+            )
+          })
+        }
       </Menu>
     )
   }
