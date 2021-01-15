@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import SideNav from '../Nav/SideNav'
 import TopNav from '../Nav/TopNav'
@@ -116,21 +117,59 @@ const router = [
   },
 ]
 
-export default class BasicLayout extends React.Component{
+class BasicLayout extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      mainMenuKey:'',
+      sideMenuArr:[]
+    }
   }
+
+  componentDidMount(){
+    // console.log(this.props.location.pathname)
+    const currentPath = this.props.location.pathname
+    const _currentMainMenu = '/' + currentPath.split('/').filter(v=>v)[0]
+    this.setCurrentMenu(_currentMainMenu)
+  }
+
+  changeSideMenu = (curNav) => {
+    this.setCurrentMenu(curNav)
+    this.props.history.push(curNav + '/dashboard')
+  }
+
+  setCurrentMenu = (curNav) => {
+    let _currentSideMenu = []
+    router.map(v=>{
+      if(v.key == curNav){
+        _currentSideMenu = v.children
+      }
+    })
+    this.setState({
+      mainMenuKey: curNav,
+      sideMenuArr: _currentSideMenu
+    })
+  }
+
   render(){
-    console.log(this.props)
+    const  {mainMenuKey, sideMenuArr} = this.state
     return (
       <Layout>
         <Header className="header">
           <div className="logo" />
-          <SideNav routerList={router}/>
+          <TopNav 
+            key={mainMenuKey}
+            routerList={router} 
+            currentMenu={mainMenuKey}
+            changeSideMenu={this.changeSideMenu}
+          />
         </Header>
         <Layout>
           <Sider width={200} className="site-layout-background">
-           <TopNav routerList={router}/>
+            <SideNav 
+              routerList={sideMenuArr}  
+              key={mainMenuKey}
+            />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
@@ -154,3 +193,5 @@ export default class BasicLayout extends React.Component{
     )
   }
 }
+
+export default  withRouter(BasicLayout)

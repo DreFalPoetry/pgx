@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route,Link, Switch, Redirect } from 'react-router-dom'; //引入路由模块
 import { Layout,Menu} from 'antd';
 import BasicLayout from './components/BasicLayout';
-// import PgsDashboard from './pages/PgsDashboard'
+import PgsDashboard from './pages/PgsDashboard'
+import PgsReport from './pages/PgsReport'
+import PgsDataManage from './pages/PgsDataManage'
 import PgsHome from './components/Pgs/Index';
 // import Pgd from './components/Pgd/Index';
 // import Azf from './components/Azf/Index'
@@ -22,21 +24,21 @@ function App() {
         <Route path='/pgs/entrance' component={Pgs}/>
         <Route path='/pgd/entrance' component={Pgd}/>
         <Route path='/azf/entrance' component={Azf}/>
-        <Route path="/pgs/dashboard" component={BasicLayout}></Route>  
+        {/* <Route path="/pgs/dashboard" component={BasicLayout}></Route>   */}
+        <Route path="/" render={()=>(
+          <BasicLayout>
+            <Switch>
+              <Route path='/' exact render={()=> (
+                <Redirect to='/pgs/dashboard'/>
+              )}/>
+              <Route path="/pgs/dashboard" exact component={PgsDashboard}></Route>  
+              <Route path="/pgs/report" exact component={PgsReport}></Route>  
+              <Route path="/pgs/data_manage" exact component={PgsDataManage}></Route>  
+            </Switch>
+          </BasicLayout>
+        )}></Route>
       </Switch>
-     
-      {/* <Route path="/" render={()=>(
-        <BasicLayout>
-          <Switch>
-            <Route path='/' exact render={()=> (
-              <Redirect to='/pgs/dashboard'/>
-            )}/>
-            <Route path="/pgs/dashboard" component={PgsDashboard}></Route>  
-          </Switch>
-        </BasicLayout>
-      )}></Route> */}
     </Router> 
-    
   );
 }
 export default App;

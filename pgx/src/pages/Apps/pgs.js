@@ -25,7 +25,7 @@ class Pgs extends React.Component{
                     </div>
                     <div className="entrance-wrapper">
                         <h3><i className="dna-icon"></i>控制台入口<i className="dna-icon"></i></h3>
-                        <a className="entrance-web" href="/public/main/pgs/dashboard">
+                        <a className="entrance-web" href="/pgs/dashboard">
                             <img alt="" src={dashboard}/>
                             <div className="entrance-text">点击进入控制台</div>
                         </a>
