@@ -1,61 +1,63 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Menu } from 'antd';
-import './index.css'
+import './index.css';
 class SideNav extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       menuKey: ''
-    }
+    };
   }
 
   componentDidMount(){
-    const currentPath = this.props.location.pathname
+    const currentPath = this.props.location.pathname;
     this.setState({
       menuKey: currentPath
-    })
+    });
   }
 
   clickMenu = ({ item, key, keyPath, domEvent }) => {
-   
-    let _this=this;
+
+    const _this=this;
     this.props.routerList.map(item=>{
-      
+
       if(item.key==key){
-        _this.props.onSelected(item.title)
+        _this.props.onSelected(item.title);
       }
-     
-    })
-    
+
+    });
+
     this.setState({
       menuKey: key
     },()=>{
-      this.props.history.push(key)
-    })
+      this.props.history.push(key);
+    });
   }
   render(){
-    const routerList=this.props.routerList;
-    const {menuKey} = this.state
+    const {routerList} = this.props;
+    const {menuKey} = this.state;
     return (
-      <Menu 
+      <Menu
       // className="page-sidebar"
-        // mode="inline" 
-        selectedKeys={menuKey} 
-       className='page-sidebar-nav'
+        // mode="inline"
+        className="page-sidebar-nav"
         onClick={this.clickMenu}
-      > 
+        selectedKeys={menuKey}
+      >
         {
           routerList.map(item=>{
-            return <Menu.Item key={item.key}>
-              <span className={`sidebar-icon ${item.icon}`} ></span>
-              <span className='sidebar-title'>{item.title}</span>           
+            return (
+              <Menu.Item key={item.key}>
+                <span className={`sidebar-icon ${item.icon}`} ></span>
+                <span className="sidebar-title">{item.title}</span>
               </Menu.Item>
+            );
           })
         }
       </Menu>
-    )
+    );
   }
 }
 
-export default withRouter(SideNav)
+export default withRouter(SideNav);

@@ -1,9 +1,9 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import SideNav from '../Nav/SideNav'
-import TopNav from '../Nav/TopNav'
-import './index.css'
+import SideNav from '../Nav/SideNav';
+import TopNav from '../Nav/TopNav';
+import './index.css';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
@@ -15,32 +15,32 @@ const router = [
       {
         title: '总览',
         icon: 'sidebar-icon-dashboard',
-        key: '/pgs/dashboard',
+        key: '/pgs/dashboard'
       },
       {
         title: '报告列表',
         icon: 'sidebar-icon-report',
-        key: '/pgs/report',
+        key: '/pgs/report'
       },
       {
         title: '数据管理',
         icon: 'sidebar-icon-data_manage',
-        key: '/pgs/data_manage',
+        key: '/pgs/data_manage'
       },
       {
         title: '统计',
         icon: 'sidebar-icon-statistics',
-        key: '/pgs/statistics',
+        key: '/pgs/statistics'
       },
       {
         title: '数据回顾',
         icon: 'sidebar-icon-statistics',
-        key: '/pgs/data_statistics',
+        key: '/pgs/data_statistics'
       },
       {
         title: '回收站',
         icon: 'sidebar-icon-recycle_bin',
-        key: '/pgs/recycle_bin',
+        key: '/pgs/recycle_bin'
       }
     ]
   },
@@ -51,22 +51,22 @@ const router = [
       {
         title: '总览',
         icon: 'sidebar-icon-dashboard',
-        key: '/pgd/dashboard',
+        key: '/pgd/dashboard'
       },
       {
         title: '报告列表',
         icon: 'sidebar-icon-report',
-        key: '/pgd/report',
+        key: '/pgd/report'
       },
       {
         title: '数据管理',
         icon: 'sidebar-icon-data_manage',
-        key: '/pgd/data_manage',
+        key: '/pgd/data_manage'
       },
       {
         title: '统计',
         icon: 'sidebar-icon-statistics',
-        key: '/pgd/statistics',
+        key: '/pgd/statistics'
       },
       // {
       //   title: '数据回顾',
@@ -76,7 +76,7 @@ const router = [
       {
         title: '回收站',
         icon: 'sidebar-icon-recycle_bin',
-        key: '/pgd/recycle_bin',
+        key: '/pgd/recycle_bin'
       }
     ]
   },
@@ -87,22 +87,22 @@ const router = [
       {
         title: '总览',
         icon: 'sidebar-icon-dashboard',
-        key: '/azf/dashboard',
+        key: '/azf/dashboard'
       },
       {
         title: '报告列表',
         icon: 'sidebar-icon-report',
-        key: '/azf/report',
+        key: '/azf/report'
       },
       {
         title: '数据管理',
         icon: 'sidebar-icon-data_manage',
-        key: '/azf/data_manage',
+        key: '/azf/data_manage'
       },
       {
         title: '统计',
         icon: 'sidebar-icon-statistics',
-        key: '/azf/statistics',
+        key: '/azf/statistics'
       },
       // {
       //   title: '数据回顾',
@@ -112,104 +112,106 @@ const router = [
       {
         title: '回收站',
         icon: 'sidebar-icon-recycle_bin',
-        key: '/azf/recycle_bin',
+        key: '/azf/recycle_bin'
       }
     ]
-  },
-]
+  }
+];
 
 class BasicLayout extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       mainMenuKey:'',
       sideMenuArr:[],
       curKey: '',
       title:''
-    }
+    };
   }
 
   componentDidMount(){
-  
-    const currentPath = this.props.location.pathname
-    const _currentMainMenu = '/' + currentPath.split('/').filter(v=>v)[0]
-    this.setCurrentMenu(_currentMainMenu)
-   
+
+    const currentPath = this.props.location.pathname;
+    const _currentMainMenu = '/' + currentPath.split('/').filter(v=>v)[0];
+    this.setCurrentMenu(_currentMainMenu);
+
     router.map(item=>{
       item.children&&item.children.map(item=>{
         if(item.key==currentPath){
           this.setState({
             title:item.title
-          })
+          });
         }
-      })
-      
-     
-    })
+      });
+
+
+    });
   }
 
   changeSideMenu = (curNav) => {
-    this.setCurrentMenu(curNav)
-    this.props.history.push(curNav + '/dashboard')
+    this.setCurrentMenu(curNav);
+    this.props.history.push(curNav + '/dashboard');
   }
 
   setCurrentMenu = (curNav) => {
-    let _currentSideMenu = []
+    let _currentSideMenu = [];
     router.map(v=>{
       if(v.key == curNav){
-        _currentSideMenu = v.children
-        
+        _currentSideMenu = v.children;
+
       }
-    })
+    });
     this.setState({
       mainMenuKey: curNav,
       sideMenuArr: _currentSideMenu,
       curKey:curNav+new Date().getTime()
-    })
+    });
   }
-// 获取面包屑
+  // 获取面包屑
   onSelected=(val)=>{
-      this.setState({
-        title:val
-      })
-    }
+    this.setState({
+      title:val
+    });
+  }
   render(){
-    const  {mainMenuKey, sideMenuArr,curKey,title} = this.state
+    const  {mainMenuKey, sideMenuArr,curKey,title} = this.state;
     return (
       <Layout>
         <Header className="header">
           <div className="logo" />
-          <TopNav 
-            key={curKey}
-            routerList={router} 
-            currentMenu={mainMenuKey}
+          <TopNav
             changeSideMenu={this.changeSideMenu}
+            currentMenu={mainMenuKey}
+            key={curKey}
             onSelected={this.onSelected}
+            routerList={router}
           />
         </Header>
         <Layout>
-          <Sider  className="page-sidebar" width={80}>
-            <SideNav 
-              routerList={sideMenuArr}  
+          <Sider  className="page-sidebar"
+            width={80}
+          >
+            <SideNav
               key={curKey}
               onSelected={this.onSelected}
+              routerList={sideMenuArr}
             />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Content
               className="page-wrapper"
             >
-               <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb style={{ margin: '16px 0' }}>
                 <Breadcrumb.Item>{title}</Breadcrumb.Item>
-                
-            </Breadcrumb>
+
+              </Breadcrumb>
               {this.props.children}
             </Content>
           </Layout>
         </Layout>
       </Layout>
-    )
+    );
   }
 }
 
-export default  withRouter(BasicLayout)
+export default  withRouter(BasicLayout);
