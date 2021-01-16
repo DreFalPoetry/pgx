@@ -1,16 +1,26 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { userLogin } from '@/request/api';
+import { setCookie } from "@/request/cookie";
 import './index.css'
 
 class Login extends React.Component{
     handleSubmit = e => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-          if (!err) {
-            console.log('Received values of form: ', values);
-          }
-        });
-      };
+      e.preventDefault();
+      this.props.form.validateFields((err, values) => {
+        if (!err) {
+          console.log('Received values of form: ', values);
+          userLogin(values).then(res=>{
+            console.log(res)
+            if(res.data){
+              setCookie('token', res.data.token, 7)
+              this.props.history.push('/apps')
+            }
+          })
+        }
+      });
+    };
     render(){
         const { getFieldDecorator } = this.props.form;
         return (
@@ -43,24 +53,13 @@ class Login extends React.Component{
                             <Form.Item>
                                 <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
                             </Form.Item>
-                            <Form.Item>
-                            {getFieldDecorator('remember', {
-                                valuePropName: 'checked',
-                                initialValue: true,
-                            })(<Checkbox>Remember me</Checkbox>)}
-                            <a className="login-form-forgot" href="">
-                                Forgot password
-                            </a>
-                          
-                           
-                            </Form.Item>
                         </Form>
                     </section>
                 </div>
             </div>
         )
     }
-   
 }
 
-export default Form.create()(Login);
+const LoginPage = Form.create()(Login);
+export default withRouter(LoginPage)

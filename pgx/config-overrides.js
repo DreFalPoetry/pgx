@@ -1,8 +1,11 @@
 const {
   override,
   fixBabelImports,
-  addLessLoader
+  addLessLoader,
+  addWebpackAlias,
+  addDecoratorsLegacy
 } = require('customize-cra');
+const path = require("path")
 module.exports = override(
   fixBabelImports('import', {
       libraryName: 'antd',
@@ -16,5 +19,11 @@ module.exports = override(
               // '@primary-color': '#1DA57A'//配置主题颜色；antd提供了其它主题颜色，可根据需要进行切换
           },
       },
-  })
+  }),
+  addWebpackAlias({
+    '@': path.resolve(__dirname, 'src'),
+    // assets: path.resolve(__dirname, './src/assets'),
+    pages: path.resolve(__dirname, './src/pages')
+  }),
+  addDecoratorsLegacy()
 )
