@@ -1,5 +1,5 @@
 import React from 'react';
-import dashboard from './dashboard.c6425961.svg';
+import dashboard from '@/assets/dashboard.c6425961.svg';
 class Pgs extends React.Component{
   render(){
     return (

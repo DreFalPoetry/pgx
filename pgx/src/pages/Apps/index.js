@@ -4,9 +4,9 @@ import {getSysData} from '@/request/api';
 import { connect } from 'react-redux';
 import { setGlobalData } from '@/store/actions';
 import '@/pages/Login/index.css';
-import azf from'./azf.06645633.svg';
-import pgd from './pgd.cc0e235e.svg';
-import pgs from './pgs.0b520ce0.svg';
+import azf from'@/assets/azf.06645633.svg';
+import pgd from '@/assets/pgd.cc0e235e.svg';
+import pgs from '@/assets/pgs.0b520ce0.svg';
 
 @connect((state) => {
   return {

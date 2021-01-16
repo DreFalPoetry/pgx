@@ -6,7 +6,7 @@
     width: 100%;
     z-index: 100;
     background-color: #2772be;
-    background-image: url(./header-bg.2d6aa282.png);
+    background-image: url(@/assets/header-bg.2d6aa282.png);
     background-size: cover
 }
 .logo{
@@ -27,7 +27,7 @@
     bottom: 0;
     width: 80px !important;
     background-color: #333;
-    background-image: url(./bg-left.94698bbb.png);
+    background-image: url(@/assets/bg-left.94698bbb.png);
     background-size: 80px;
     background-repeat: repeat-y;
 }

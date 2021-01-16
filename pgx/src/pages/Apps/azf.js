@@ -1,6 +1,5 @@
 import React from 'react';
-import dashboard from './dashboard.c6425961.svg';
-import upload from './pgd-upload.9fe2a606.svg';
+import dashboard from '@/assets/dashboard.c6425961.svg';
 class Azf extends React.Component{
   render(){
     return (
