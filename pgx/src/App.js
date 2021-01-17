@@ -1,20 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route,Link, Switch, Redirect } from 'react-router-dom'; //引入路由模块
-import { Layout,Menu} from 'antd';
+import '@/styles/common.less';
 import BasicLayout from './components/BasicLayout';
 import PgsDashboard from './pages/PgsDashboard';
 import PgsReport from './pages/PgsReport';
 import PgsDataManage from './pages/PgsDataManage';
-
-// import Pgd from './components/Pgd/Index';
-// import Azf from './components/Azf/Index'
-import './App.css';
 import Login from './pages/Login';
 import Apps from './pages/Apps';
 import Pgs from './pages/Apps/pgs';
 import Pgd from './pages/Apps/pgd';
 import Azf from './pages/Apps/azf';
-const { Header, Content, Footer } = Layout;
+
 function App() {
   return (
     <Router >

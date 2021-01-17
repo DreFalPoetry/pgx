@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import zhCN from 'antd/lib/locale/zh_CN';
+import {ConfigProvider} from 'antd';
 import {Provider} from 'react-redux';
 import store from '@/store/index';
 import './index.css';
@@ -8,7 +10,9 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConfigProvider locale={zhCN}>
+      <App />
+    </ConfigProvider>
   </Provider>
   ,
   document.getElementById('root')

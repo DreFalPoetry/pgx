@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu } from 'antd';
-import './index.css';
+import './index.less';
 export default class TopNav extends React.Component{
   clickMenu = ({ item, key, keyPath, domEvent }) => {
     this.props.onSelected('总览');

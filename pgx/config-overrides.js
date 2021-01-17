@@ -16,7 +16,8 @@ module.exports = override(
     lessOptions: {
       javascriptEnabled: true,
       modifyVars: {
-        // '@primary-color': '#1DA57A'//配置主题颜色；antd提供了其它主题颜色，可根据需要进行切换
+        '@primary-color': '#286cac',//配置主题颜色；antd提供了其它主题颜色，可根据需要进行切换
+        '@font-size-base': '12px;'
       }
     }
   }),

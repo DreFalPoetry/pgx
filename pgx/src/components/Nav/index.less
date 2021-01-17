@@ -1,13 +1,15 @@
 .memuwrapper{
     height: 50px !important;
     line-height:50px;
+    font-size: 14px;
+    flex: 1;
     /* position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100; */
     background-color: #2772be;
-    background-image: url(@/assets/nav/header-bg.2d6aa282.png) !important;
+    background-image: 'url(/assets/nav/header-bg.2d6aa282.png)' !important;
     background-color:none !important ;
     /* background-size: cover */
     color: hsla(0,0%,100%,.6);
@@ -29,9 +31,18 @@
 .ant-menu-horizontal{
     border-bottom: none !important;
 }
-.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected{
-    color: #1890ff;
-    border-bottom:2px solid transparent !important;
+.header{
+  .ant-menu-horizontal > .ant-menu-item:hover, 
+  .ant-menu-horizontal > .ant-menu-submenu:hover, 
+  .ant-menu-horizontal > .ant-menu-item-active, 
+  .ant-menu-horizontal > .ant-menu-submenu-active, 
+  .ant-menu-horizontal > .ant-menu-item-open, 
+  .ant-menu-horizontal > .ant-menu-submenu-open, 
+  .ant-menu-horizontal > .ant-menu-item-selected, 
+  .ant-menu-horizontal > .ant-menu-submenu-selected{
+      color: #1890ff;
+      border-bottom:2px solid transparent !important;
+  }
 }
 .page-sidebar-nav{
     background: transparent;

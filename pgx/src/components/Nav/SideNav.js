@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Menu } from 'antd';
-import './index.css';
+import './index.less';
 class SideNav extends React.Component{
   constructor(props){
     super(props);

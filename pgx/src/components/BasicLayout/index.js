@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import SideNav from '../Nav/SideNav';
 import TopNav from '../Nav/TopNav';
 import './index.css';
@@ -188,7 +188,8 @@ class BasicLayout extends React.Component{
           />
         </Header>
         <Layout>
-          <Sider  className="page-sidebar"
+          <Sider
+            className="page-sidebar"
             width={80}
           >
             <SideNav
@@ -197,13 +198,12 @@ class BasicLayout extends React.Component{
               routerList={sideMenuArr}
             />
           </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <Layout style={{background:'#efefef'}}>
             <Content
               className="page-wrapper"
             >
-              <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb style={{ marginBottom: '12px' }}>
                 <Breadcrumb.Item>{title}</Breadcrumb.Item>
-
               </Breadcrumb>
               {this.props.children}
             </Content>
