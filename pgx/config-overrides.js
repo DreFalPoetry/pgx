@@ -17,7 +17,8 @@ module.exports = override(
       javascriptEnabled: true,
       modifyVars: {
         '@primary-color': '#286cac',//配置主题颜色；antd提供了其它主题颜色，可根据需要进行切换
-        '@font-size-base': '12px;'
+        '@font-size-base': '12px;',
+        'localIdentName': '[local]--[hash:base64:5]'
       }
     }
   }),

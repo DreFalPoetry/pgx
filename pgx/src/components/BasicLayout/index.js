@@ -3,120 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import SideNav from '../Nav/SideNav';
 import TopNav from '../Nav/TopNav';
+import router from '@/router/router';
 import './index.css';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
-
-const router = [
-  {
-    title: 'pgs',
-    key: '/pgs',
-    children: [
-      {
-        title: '总览',
-        icon: 'sidebar-icon-dashboard',
-        key: '/pgs/dashboard'
-      },
-      {
-        title: '报告列表',
-        icon: 'sidebar-icon-report',
-        key: '/pgs/report'
-      },
-      {
-        title: '数据管理',
-        icon: 'sidebar-icon-data_manage',
-        key: '/pgs/data_manage'
-      },
-      {
-        title: '统计',
-        icon: 'sidebar-icon-statistics',
-        key: '/pgs/statistics'
-      },
-      {
-        title: '数据回顾',
-        icon: 'sidebar-icon-statistics',
-        key: '/pgs/data_statistics'
-      },
-      {
-        title: '回收站',
-        icon: 'sidebar-icon-recycle_bin',
-        key: '/pgs/recycle_bin'
-      }
-    ]
-  },
-  {
-    title: 'pgd',
-    key: '/pgd',
-    children: [
-      {
-        title: '总览',
-        icon: 'sidebar-icon-dashboard',
-        key: '/pgd/dashboard'
-      },
-      {
-        title: '报告列表',
-        icon: 'sidebar-icon-report',
-        key: '/pgd/report'
-      },
-      {
-        title: '数据管理',
-        icon: 'sidebar-icon-data_manage',
-        key: '/pgd/data_manage'
-      },
-      {
-        title: '统计',
-        icon: 'sidebar-icon-statistics',
-        key: '/pgd/statistics'
-      },
-      // {
-      //   title: '数据回顾',
-      //   icon: 'snippets',
-      //   key: '/pgd/data_statistics',
-      // },
-      {
-        title: '回收站',
-        icon: 'sidebar-icon-recycle_bin',
-        key: '/pgd/recycle_bin'
-      }
-    ]
-  },
-  {
-    title: 'azf',
-    key: '/azf',
-    children: [
-      {
-        title: '总览',
-        icon: 'sidebar-icon-dashboard',
-        key: '/azf/dashboard'
-      },
-      {
-        title: '报告列表',
-        icon: 'sidebar-icon-report',
-        key: '/azf/report'
-      },
-      {
-        title: '数据管理',
-        icon: 'sidebar-icon-data_manage',
-        key: '/azf/data_manage'
-      },
-      {
-        title: '统计',
-        icon: 'sidebar-icon-statistics',
-        key: '/azf/statistics'
-      },
-      // {
-      //   title: '数据回顾',
-      //   icon: 'snippets',
-      //   key: '/azf/data_statistics',
-      // },
-      {
-        title: '回收站',
-        icon: 'sidebar-icon-recycle_bin',
-        key: '/azf/recycle_bin'
-      }
-    ]
-  }
-];
 
 class BasicLayout extends React.Component{
   constructor(props){
@@ -130,7 +20,6 @@ class BasicLayout extends React.Component{
   }
 
   componentDidMount(){
-
     const currentPath = this.props.location.pathname;
     const _currentMainMenu = '/' + currentPath.split('/').filter(v=>v)[0];
     this.setCurrentMenu(_currentMainMenu);
@@ -143,8 +32,6 @@ class BasicLayout extends React.Component{
           });
         }
       });
-
-
     });
   }
 

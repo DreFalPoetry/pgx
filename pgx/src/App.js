@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route,Link, Switch, Redirect } from 'react-router-dom'; //引入路由模块
 import '@/styles/common.less';
 import BasicLayout from './components/BasicLayout';
-import PgsDashboard from './pages/PgsDashboard';
-import PgsReport from './pages/PgsReport';
-import PgsDataManage from './pages/PgsDataManage';
+import PgtDashboard from './pages/PgtDashboard';
+import PgtReport from './pages/PgtReport';
+import PgtDataManage from './pages/PgtDataManage';
 import Login from './pages/Login';
 import Apps from './pages/Apps';
 import Pgs from './pages/Apps/pgs';
@@ -30,27 +30,14 @@ function App() {
           render={()=>(
             <BasicLayout>
               <Switch>
-                <Route exact
-                  path="/"
+                <Route exact path="/"
                   render={()=> (
                     <Redirect to="/apps"/>
                   )}
                 />
-                <Route
-                  component={PgsDashboard}
-                  exact
-                  path="/pgs/dashboard"
-                ></Route>
-                <Route
-                  component={PgsReport}
-                  exact
-                  path="/pgs/report"
-                ></Route>
-                <Route
-                  component={PgsDataManage}
-                  exact
-                  path="/pgs/data_manage"
-                ></Route>
+                <Route component={PgtDashboard} exact path="/pgt-a/dashboard"></Route>
+                <Route component={PgtReport} exact path="/pgt-a/report"></Route>
+                <Route component={PgtDataManage} exact path="/pgt-a/data_manage"></Route>
               </Switch>
             </BasicLayout>
           )}

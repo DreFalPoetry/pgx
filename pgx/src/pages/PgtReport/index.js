@@ -3,8 +3,7 @@ import {Breadcrumb,Icon} from 'antd';
 import CPagination from '@/components/Pagination';
 import Search from './search';
 import Table from './table';
-import './index.css';
-class PgsDashboard extends React.Component{
+class PgsReport extends React.Component{
   onShowSizeChange = (current, page) => {
 
   }
@@ -26,4 +25,4 @@ class PgsDashboard extends React.Component{
   }
 }
 
-export default PgsDashboard;
+export default PgsReport;
