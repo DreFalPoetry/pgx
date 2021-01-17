@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import {getSysData} from '@/request/api';
 import { setGlobalData } from '@/store/actions';
-import { Layout, Menu, Breadcrumb, Button } from 'antd';
+import { Layout, Menu, Breadcrumb, Button,Avatar, Dropdown,Icon } from 'antd';
 import SideNav from '../Nav/SideNav';
 import TopNav from '../Nav/TopNav';
 import BasicRouter from '@/router/router';
@@ -30,6 +30,7 @@ class BasicLayout extends React.Component{
 
   componentDidMount(){
     getSysData().then(res=>{
+      // 先模拟写用户类型 管理员1 普通用户2
       res.data.userType = 1;
       this.props.dispatch(setGlobalData(res.data));
     });
@@ -74,10 +75,20 @@ class BasicLayout extends React.Component{
       title:val
     });
   }
+  clickMenu = () => {
+
+  }
   render(){
     const  {mainMenuKey, sideMenuArr,curKey,title} = this.state;
     console.log('basic data:', this.props.globalData);
     const { userType } = this.props.globalData;
+    const menu = (
+      <Menu onClick={this.clickMenu}>
+        <Menu.Item key="1">账户信息</Menu.Item>
+        <Menu.Item key="2">修改密码</Menu.Item>
+        <Menu.Item key="3">退出登录</Menu.Item>
+      </Menu>
+    );
     return (
       <Layout>
         <Header className="header">
@@ -91,8 +102,19 @@ class BasicLayout extends React.Component{
                 onSelected={this.onSelected}
                 routerList={BasicRouter}
               />
-            ) : ''
+            ) : <div style={{flex:1}}></div>
           }
+          <ul className="header-global-info">
+            <li>生信版本</li>
+            <li>
+              <Dropdown overlay={menu}>
+                <div>
+                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                  <span>测试账号 <Icon type="down" /></span>
+                </div>
+              </Dropdown>
+            </li>
+          </ul>
         </Header>
         <Layout>
           {

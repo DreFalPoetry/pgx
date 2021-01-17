@@ -10,6 +10,7 @@ import Apps from './pages/Apps';
 import PgtA from './pages/Apps/pgt-a';
 import CnvSeq from './pages/Apps/cnv-seq';
 import Azf from './pages/Apps/azf';
+import UserList from '@/pages/AccountManage/index';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route component={PgtDashboard} exact path="/pgt-a/dashboard"></Route>
                 <Route component={PgtReport} exact path="/pgt-a/report"></Route>
                 <Route component={PgtDataManage} exact path="/pgt-a/data_manage"></Route>
+                <Route component={UserList} exact path="/user-manage"></Route>
               </Switch>
             </BasicLayout>
           )}

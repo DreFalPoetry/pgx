@@ -13,3 +13,10 @@ export function getSysData(){
     url: '/pub/sysLookUp'
   });
 }
+
+export function getUserList(){
+  return request({
+    url:'/user/list',
+    method: MethodType.POST
+  });
+}

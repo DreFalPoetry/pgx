@@ -7,7 +7,7 @@ const adminRouter = [
   {
     title: '账户管理',
     icon: 'user-manage',
-    key: '/cnv-seq'
+    key: '/user-manage'
   }
 ];
 

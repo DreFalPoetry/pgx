@@ -40,3 +40,17 @@
     min-height: calc(100vh - 50px);
     padding-bottom: 80px;
 }
+
+/*  */
+.header-global-info{
+  float: right;
+  height: 50px;
+  margin-bottom: 0px;
+  padding: 0px;
+  color: #ffffff;
+}
+.header-global-info li{
+  float: left;
+  height: 50px;
+  line-height: 50px;
+}
