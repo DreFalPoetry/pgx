@@ -5,27 +5,21 @@ import BasicLayout from './components/BasicLayout';
 import PgtDashboard from './pages/PgtDashboard';
 import PgtReport from './pages/PgtReport';
 import PgtDataManage from './pages/PgtDataManage';
-import Login from './pages/Login';
+import LoginPage from './pages/Login';
 import Apps from './pages/Apps';
-import Pgs from './pages/Apps/pgs';
-import Pgd from './pages/Apps/pgd';
+import PgtA from './pages/Apps/pgt-a';
+import CnvSeq from './pages/Apps/cnv-seq';
 import Azf from './pages/Apps/azf';
 
 function App() {
   return (
-    <Router >
+    <Router>
       <Switch>
-        <Route component={Login} path="/login"/>
+        <Route component={LoginPage} path="/login"/>
         <Route component={Apps} path="/apps"/>
-        <Route component={Pgs}
-          path="/pgs/entrance"
-        />
-        <Route
-          component={Pgd}
-          path="/pgd/entrance"
-        />
+        <Route component={PgtA} path="/pgt-a/entrance"/>
+        <Route component={CnvSeq} path="/cnv-seq/entrance"/>
         <Route component={Azf} path="/azf/entrance"/>
-        {/* <Route path="/pgs/dashboard" component={BasicLayout}></Route>   */}
         <Route path="/"
           render={()=>(
             <BasicLayout>

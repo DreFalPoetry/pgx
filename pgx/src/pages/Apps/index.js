@@ -25,16 +25,16 @@ class Apps extends React.Component{
     });
   }
   onClick=(type)=>{
-    if(type=='pgs'){
-      this.props.history.push('/pgs/entrance');
-    }else if(type=='pgd'){
-      this.props.history.push('/pgd/entrance');
+    if(type=='pgt-a'){
+      this.props.history.push('/pgt-a/entrance');
+    }else if(type=='cnv-seq'){
+      this.props.history.push('/cnv-seq/entrance');
     }else if(type=='azf'){
       this.props.history.push('/azf/entrance');
     }
   }
   render(){
-    console.log(this.props.globalData);
+    console.log('global data:', this.props.globalData);
     return (
       <Router>
         <div className="login-back">
@@ -43,23 +43,23 @@ class Apps extends React.Component{
             <h2 className="logo-user">欢迎您，<span className="logo-username">测试账号</span></h2>
             <div className="apps-container" >
               <div className="app-card app-pgs"
-                onClick={()=>this.onClick('pgs')}
+                onClick={()=>this.onClick('pgt-a')}
               >
                 <img alt="app"
                   className="app-icon"
                   src={pgs}
                 />
-                <div className="app-name">PGS/gDNA</div>
+                <div className="app-name">PGT-A</div>
                 <div className="card-shadow pgs"></div>
               </div>
               <div className="app-card app-pgd"
-                onClick={()=>this.onClick('pgd')}
+                onClick={()=>this.onClick('cnv-seq')}
               >
                 <img alt="app"
                   className="app-icon"
                   src={pgd}
                 />
-                <div className="app-name">PGD</div><div className="card-shadow pgd"></div>
+                <div className="app-name">CNV-seq</div><div className="card-shadow pgd"></div>
               </div>
               <div className="app-card app-azf"
                 onClick={()=>this.onClick('azf')}
