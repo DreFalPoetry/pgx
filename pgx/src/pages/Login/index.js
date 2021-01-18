@@ -32,7 +32,7 @@ class Login extends React.Component{
                 onSubmit={this.handleSubmit}
               >
                 <Form.Item>
-                  {getFieldDecorator('username', {
+                  {getFieldDecorator('userName', {
                     rules: [{ required: true, message: '请输入你的用户名' }]
                   })(
                     <Input

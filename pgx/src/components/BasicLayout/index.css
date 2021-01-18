@@ -10,6 +10,7 @@
     background-size: cover;
     display: flex;
     align-items: center;
+    padding: 0 20px !important;
 }
 .logo{
     margin-right: 15px;
@@ -53,4 +54,5 @@
   float: left;
   height: 50px;
   line-height: 50px;
+  padding:0 16px;
 }
