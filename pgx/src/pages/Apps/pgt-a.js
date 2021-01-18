@@ -1,6 +1,6 @@
 import React from 'react';
 import dashboard from '@/assets/dashboard.c6425961.svg';
-class Azf extends React.Component{
+class Pgs extends React.Component{
   render(){
     return (
       <div className="login-back">
@@ -10,14 +10,23 @@ class Azf extends React.Component{
           <div className="ant-row entrance-container">
             <div className="entrance-wrapper">
               <h3><i className="dna-icon"></i>快速上传通道<i className="dna-icon"></i></h3>
-              <p className="sc-jqCOkK qLpNS">AZF_PGM</p>
-              <p className="sc-jqCOkK qLpNS">AZF_Miseq</p>
+              <p className="sc-caSCKo kMSsFT">Miseq-gDNA</p>
+              <p className="sc-caSCKo kMSsFT">Miseq-PGS-MDA</p>
+              <p className="sc-caSCKo kMSsFT">Miseq-PGS-READseqV2.0</p>
+              <p className="sc-caSCKo kMSsFT">Miseq-PGS-SUREPLEX</p>
+              <p className="sc-caSCKo kMSsFT">NextSeq-PGS(1M)-MDA</p>
+              <p className="sc-caSCKo kMSsFT">NextSeq-PGS-MDA</p>
+              <p className="sc-caSCKo kMSsFT">NextSeq-PGS-SUREPLEX</p>
+              <p className="sc-caSCKo kMSsFT">PGM-Amp</p>
+              <p className="sc-caSCKo kMSsFT">PGM-gDNA</p>
+              <p className="sc-caSCKo kMSsFT">PGM-PGS-MDA</p>
+              <p className="sc-caSCKo kMSsFT">PGM-PGS-SUREPLEX</p>
               <div className="shadow-way"></div>
             </div>
             <div className="entrance-wrapper">
               <h3><i className="dna-icon"></i>控制台入口<i className="dna-icon"></i></h3>
               <a className="entrance-web"
-                href="/azf/dashboard"
+                href="/pgt-a/dashboard"
               >
                 <img alt=""
                   src={dashboard}
@@ -34,4 +43,4 @@ class Azf extends React.Component{
 
 }
 
-export default Azf;
+export default Pgs;

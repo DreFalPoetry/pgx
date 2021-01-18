@@ -1,66 +1,70 @@
-import React from 'react'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import './index.css'
+import { userLogin } from '@/request/api';
+import { setCookie } from '@/request/cookie';
+import './index.css';
 
 class Login extends React.Component{
     handleSubmit = e => {
-        e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-          if (!err) {
-            console.log('Received values of form: ', values);
-          }
-        });
-      };
+      e.preventDefault();
+      this.props.form.validateFields((err, values) => {
+        if (!err) {
+          console.log('Received values of form: ', values);
+          userLogin(values).then(res=>{
+            console.log(res);
+            if(res.data){
+              setCookie('token', res.data.token, 7);
+              this.props.history.push('/apps');
+            }
+          });
+        }
+      });
+    };
     render(){
-        const { getFieldDecorator } = this.props.form;
-        return (
-            <div className='login-back'>
-                <div className='login-container'>
-                    <h1 className='logo-img'>PGX CLOUD</h1>
-                    <section>
-                        <Form onSubmit={this.handleSubmit} className="login-form">
-                            <Form.Item>
-                            {getFieldDecorator('username', {
-                                rules: [{ required: true, message: '请输入你的用户名' }],
-                            })(
-                                <Input
-                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="请输入你的用户名！"
-                                />,
-                            )}
-                            </Form.Item>
-                            <Form.Item>
-                            {getFieldDecorator('password', {
-                                rules: [{ required: true, message: '请输入你的密码!' }],
-                            })(
-                                <Input
-                                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                type="password"
-                                placeholder="请输入你的密码!"
-                                />,
-                            )}
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
-                            </Form.Item>
-                            <Form.Item>
-                            {getFieldDecorator('remember', {
-                                valuePropName: 'checked',
-                                initialValue: true,
-                            })(<Checkbox>Remember me</Checkbox>)}
-                            <a className="login-form-forgot" href="">
-                                Forgot password
-                            </a>
-                          
-                           
-                            </Form.Item>
-                        </Form>
-                    </section>
-                </div>
-            </div>
-        )
+      const { getFieldDecorator } = this.props.form;
+      return (
+        <div className="login-back">
+          <div className="login-container">
+            <h1 className="logo-img">PGX CLOUD</h1>
+            <section>
+              <Form className="login-form"
+                onSubmit={this.handleSubmit}
+              >
+                <Form.Item>
+                  {getFieldDecorator('username', {
+                    rules: [{ required: true, message: '请输入你的用户名' }]
+                  })(
+                    <Input
+                      placeholder="请输入你的用户名！"
+                      prefix={<Icon style={{ color: 'rgba(0,0,0,.25)' }} type="user"/>}
+                    />,
+                  )}
+                </Form.Item>
+                <Form.Item>
+                  {getFieldDecorator('password', {
+                    rules: [{ required: true, message: '请输入你的密码!' }]
+                  })(
+                    <Input
+                      placeholder="请输入你的密码!"
+                      prefix={<Icon style={{ color: 'rgba(0,0,0,.25)' }} type="lock"/>}
+                      type="password"
+                    />,
+                  )}
+                </Form.Item>
+                <Form.Item>
+                  <Button className="login-form-button"
+                    htmlType="submit"
+                    type="primary"
+                  >登录</Button>
+                </Form.Item>
+              </Form>
+            </section>
+          </div>
+        </div>
+      );
     }
-   
 }
 
-export default Form.create()(Login);
+const LoginPage = Form.create()(Login);
+export default withRouter(LoginPage);

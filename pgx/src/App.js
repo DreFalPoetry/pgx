@@ -1,44 +1,45 @@
 import React from 'react';
 import { BrowserRouter as Router, Route,Link, Switch, Redirect } from 'react-router-dom'; //引入路由模块
-import { Layout,Menu} from 'antd';
+import '@/styles/common.less';
 import BasicLayout from './components/BasicLayout';
-import PgsDashboard from './pages/PgsDashboard'
-import PgsReport from './pages/PgsReport'
-import PgsDataManage from './pages/PgsDataManage'
-
-// import Pgd from './components/Pgd/Index';
-// import Azf from './components/Azf/Index'
-import './App.css'
-import Login from './pages/Login';
+import PgtDashboard from './pages/PgtDashboard';
+import PgtReport from './pages/PgtReport';
+import PgtDataManage from './pages/PgtDataManage';
+import LoginPage from './pages/Login';
 import Apps from './pages/Apps';
-import Pgs from './pages/Apps/pgs';
-import Pgd from './pages/Apps/pgd';
+import PgtA from './pages/Apps/pgt-a';
+import CnvSeq from './pages/Apps/cnv-seq';
 import Azf from './pages/Apps/azf';
-const { Header, Content, Footer } = Layout;
+import UserList from '@/pages/AccountManage/index';
+
 function App() {
   return (
-    <Router >
+    <Router>
       <Switch>
-        <Route path='/login' component={Login}/>
-        <Route path='/apps' component={Apps}/>
-        <Route path='/pgs/entrance' component={Pgs}/>
-        <Route path='/pgd/entrance' component={Pgd}/>
-        <Route path='/azf/entrance' component={Azf}/>
-        {/* <Route path="/pgs/dashboard" component={BasicLayout}></Route>   */}
-        <Route path="/" render={()=>(
-          <BasicLayout>
-            <Switch>
-              <Route path='/' exact render={()=> (
-                <Redirect to='/pgs/dashboard'/>
-              )}/>
-              <Route path="/pgs/dashboard" exact component={PgsDashboard}></Route>  
-              <Route path="/pgs/report" exact component={PgsReport}></Route>  
-              <Route path="/pgs/data_manage" exact component={PgsDataManage}></Route>  
-            </Switch>
-          </BasicLayout>
-        )}></Route>
+        <Route component={LoginPage} path="/login"/>
+        <Route component={Apps} path="/apps"/>
+        <Route component={PgtA} path="/pgt-a/entrance"/>
+        <Route component={CnvSeq} path="/cnv-seq/entrance"/>
+        <Route component={Azf} path="/azf/entrance"/>
+        <Route path="/"
+          render={()=>(
+            <BasicLayout>
+              <Switch>
+                <Route exact path="/"
+                  render={()=> (
+                    <Redirect to="/apps"/>
+                  )}
+                />
+                <Route component={PgtDashboard} exact path="/pgt-a/dashboard"></Route>
+                <Route component={PgtReport} exact path="/pgt-a/report"></Route>
+                <Route component={PgtDataManage} exact path="/pgt-a/data_manage"></Route>
+                <Route component={UserList} exact path="/user-manage"></Route>
+              </Switch>
+            </BasicLayout>
+          )}
+        ></Route>
       </Switch>
-    </Router> 
+    </Router>
   );
 }
 export default App;
