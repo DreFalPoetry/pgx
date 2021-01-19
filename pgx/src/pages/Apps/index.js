@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route,Link, Switch, Redirect } from 'react-router-dom'; //引入路由模块
-import {getSysData} from '@/request/api';
+import {getSysData,getListData} from '@/request/api';
 import { connect } from 'react-redux';
-import { setGlobalData } from '@/store/actions';
+import { setGlobalData,setSmallData } from '@/store/actions';
 import '@/pages/Login/index.css';
 import azf from'@/assets/azf.06645633.svg';
 import pgd from '@/assets/pgd.cc0e235e.svg';
@@ -25,16 +25,26 @@ class Apps extends React.Component{
     });
   }
   onClick=(type)=>{
+    const tys=1;
     if(type=='pgt-a'){
+      getListData(tys,{bigType:0}).then(res=>{
+        this.props.dispatch(setSmallData(res.data));
+      });
       this.props.history.push('/pgt-a/entrance');
     }else if(type=='cnv-seq'){
+      getListData(tys,{bigType:1}).then(res=>{
+        this.props.dispatch(setSmallData(res.data));
+      });
       this.props.history.push('/cnv-seq/entrance');
     }else if(type=='azf'){
+      getListData(tys,{bigType:2}).then(res=>{
+        this.props.dispatch(setSmallData(res.data));
+      });
       this.props.history.push('/azf/entrance');
     }
   }
   render(){
-    console.log('global data:', this.props.globalData);
+    // console.log('global data:', this.props.globalData);
     return (
       <Router>
         <div className="login-back">

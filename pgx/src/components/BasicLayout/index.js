@@ -31,7 +31,7 @@ class BasicLayout extends React.Component{
   componentDidMount(){
     getSysData().then(res=>{
       // 先模拟写用户类型 管理员1 普通用户2
-      res.data.userType = 1;
+      res.data.userType = 2;
       this.props.dispatch(setGlobalData(res.data));
     });
 

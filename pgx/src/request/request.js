@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { message } from 'antd';
 import { getCookie } from './cookie';
-const baseUrl = 'http://123.56.21.11:3000/mock/219';
+const baseUrl = 'http://47.93.24.245:9070/server/';
 
 export const MethodType = {
   GET: 'GET',

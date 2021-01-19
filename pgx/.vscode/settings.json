@@ -1,0 +1,39 @@
+{
+      "window.zoomLevel": 0,
+      "javascript.implicitProjectConfig.experimentalDecorators": true,
+      "emmet.triggerExpansionOnTab": true,
+      "terminal.integrated.fontFamily": "monospace",
+      "editor.minimap.enabled": true,
+      "editor.detectIndentation": false,
+      "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+      },
+      "files.associations": {
+        "*.wxml": "wxml",
+        "*.wxs": "css",
+        "*.cjson": "jsonc",
+        "*.wxss": "css"
+      },
+      "[php]": {},
+      "terminal.integrated.rendererType": "dom",
+      "workbench.colorTheme": "Default Light+",
+      "diffEditor.ignoreTrimWhitespace": false,
+      "search.followSymlinks": false,
+      "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "editor.tabSize": 2,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "files.autoSave": "off",
+    "eslint.codeAction.showDocumentation": {
+      "enable": true
+    },
+    "emmet.includeLanguages": {
+      "wxml": "html"
+    },
+    "minapp-vscode.disableAutoConfig": true,
+    "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": true
+    },
+    "git.autofetch": true,
+    }
